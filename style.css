@@ -1,20 +1,31 @@
+:root {
+  --wh: 85px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Montserrat, Tahoma, Arial, sans-serif;
   display: flex;
 }
 
 #page-title {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 #txtSolved {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: large;
 }
 
 #board {
-  width: 800px;
-  height: 800px;
+  width: calc(var(--wh) * 8);
+  height: calc(var(--wh) * 8);
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
@@ -23,8 +34,8 @@ body {
 
 .square {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: var(--wh);
+  height: var(--wh);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,19 +47,19 @@ body {
 }
 
 .theme-default.light {
-  background-color: #DEE3E6;
+  background-color: #dee3e6;
 }
 
 .theme-default.dark {
-  background-color: #8CA2AD;
+  background-color: #8ca2ad;
 }
 
 .theme-candy.light {
-  background-color: #F9E3E3;
+  background-color: #f9e3e3;
 }
 
 .theme-candy.dark {
-  background-color: #F9C3C3;
+  background-color: #f9c3c3;
 }
 
 .theme-wood.light {
@@ -72,10 +83,26 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   flex-shrink: 1;
   max-height: 100%;
+}
+
+.game-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4%;
+}
+
+.btn-container {
+  position: absolute;
+  bottom: -7%;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .highlight {
@@ -109,25 +136,27 @@ body {
 
 .my-swal {
   background-color: green;
-  background: rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .button {
   appearance: none;
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #24292E;
+  color: #24292e;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
   list-style: none;
-  padding: 6px 16px;
+  padding: 1% 2.5%;
   position: relative;
   transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
   user-select: none;
@@ -139,20 +168,20 @@ body {
 }
 
 .button:hover {
-  background-color: #F3F4F6;
+  background-color: #f3f4f6;
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
 .button:disabled {
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
+  color: #959da5;
   cursor: default;
 }
 
 .button:active {
-  background-color: #EDEFF2;
+  background-color: #f2eded;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
@@ -194,4 +223,27 @@ body {
 
 .github-fork-ribbon:before {
   background-color: #000;
+}
+
+/* Desktop */
+@media only screen and (max-width: 1920px) {
+  :root {
+    --wh: 85px;
+  }
+  .button {
+    font-size: 16px;
+    padding: 1% 3%;
+  }
+}
+
+/* Laptop */
+@media only screen and (max-width: 1280px) {
+  :root {
+    --wh: 45px;
+  }
+
+  .button {
+    font-size: 10px;
+    padding: 0.5% 1.5%;
+  }
 }
